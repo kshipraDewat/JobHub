@@ -1,12 +1,13 @@
 import './App.css'
-import { Button } from './components/ui/button'
+import Navbar from './components/ui/shared/Navbar'
 
 function App() {
 
 
   return (
    <div className='p-5'>
-     <Button>sign up</Button>
+     <Navbar/>
+    
    </div>
   )
 }
