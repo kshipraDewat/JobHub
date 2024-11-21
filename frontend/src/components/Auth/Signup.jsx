@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Navbar from "../ui/shared/Navbar";
+import Navbar from "../shared/Navbar";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "../ui/input";
 import { RadioGroup } from "@radix-ui/react-radio-group";

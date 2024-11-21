@@ -4,7 +4,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import React from 'react'
-import { Button } from '../button'
+import { Button } from '../ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
 import { LogOut, User2 } from "lucide-react"
 import { Link } from "react-router-dom"
@@ -12,13 +12,13 @@ import { Link } from "react-router-dom"
 const Navbar = () => {
   const user = false
   return (
-    <div>
+    <div className="pt-3">
       <div className='flex items-center justify-between mx-10 lg:mx-auto max-w-7xl h-12 ' >
         <div>
           <h1 className='text-2xl font-bold'>Job<span className='text-[#5b30a6] font-bold'>Hub</span></h1>
         </div>
         <div className="flex items-center gap-12">
-          <ul className='flex font-medium items-center gap-5'>
+          <ul className='font-medium items-center gap-5 hidden sm:flex'>
             <li>Home</li>
             <li>Jobs</li>
             <li>Browse</li>
