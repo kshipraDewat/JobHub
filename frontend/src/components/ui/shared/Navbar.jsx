@@ -13,7 +13,7 @@ const Navbar = () => {
   const user = false
   return (
     <div>
-      <div className='flex items-center justify-between mx-auto max-w-7xl h-12' >
+      <div className='flex items-center justify-between mx-10 lg:mx-auto max-w-7xl h-12 ' >
         <div>
           <h1 className='text-2xl font-bold'>Job<span className='text-[#5b30a6] font-bold'>Hub</span></h1>
         </div>
