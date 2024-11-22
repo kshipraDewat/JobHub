@@ -9,7 +9,7 @@ import axios from "axios";
 import { USER_API_END_POINT } from '@/utils/constant'
 import Navbar from "../shared/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { setLoading } from "@/Redux/authSlice";
+import { setLoading, setUser } from "@/Redux/authSlice";
 import { Loader2 } from "lucide-react";
 
 

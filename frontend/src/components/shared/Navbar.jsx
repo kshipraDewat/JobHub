@@ -51,7 +51,7 @@ const Navbar = () => {
                 <div className="flex flex-col text-gray-600 m-2">
                   <div className="flex w-fil items-center gap-2 cursor-pointer ">
                     <User2 className="" />
-                    <Button variant="link" className='outline-none text-gray-600'> View Profile</Button>
+                    <Button variant="link" className='outline-none text-gray-600'> <Link to='/profile'>View Profile </Link> </Button>
                   </div>
                   <div className="flex w-fil items-center gap-2 cursor-pointer">
                     <LogOut className="" />
