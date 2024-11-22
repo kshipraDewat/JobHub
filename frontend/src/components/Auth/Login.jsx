@@ -19,7 +19,7 @@ const Login = () => {
         password:"",
         role:"",
     })
-    const {loading}= useSelector(store => store.auth)
+    const {loading, user}= useSelector(store => store.auth)
     const navigate = useNavigate();
     const dispatch = useDispatch()
 
@@ -39,6 +39,7 @@ const Login = () => {
                 withCredentials: true,
             });
             if (res.data.success) {
+                dispatch(setUser(res.data.user));
                 navigate("/");
                 toast.success(res.data.message);
             }
