@@ -19,10 +19,10 @@ const fitlerData = [
 
 const FilterCard = () => {
   return (
-    <div className='w-full h-full bg-white  rounded-md p-10  shadow'>
+    <div className='w-full h-full bg-white  rounded-md p-3 md:p-10  shadow'>
       <h1 className='font-bold text-lg'>Filter Jobs</h1>
       <hr className='mt-3' />
-      <RadioGroup className='w-full p-5'>
+      <RadioGroup className='w-full p-2 md:p-5'>
         {
           fitlerData.map((data, index) => (
             <div>
