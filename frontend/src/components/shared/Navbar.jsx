@@ -7,11 +7,31 @@ import React from 'react'
 import { Button } from '../ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
 import { LogOut, User2 } from "lucide-react"
-import { Link } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { Link, useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { toast } from "sonner"
+import axios from "axios"
+import { USER_API_END_POINT } from '@/utils/constant'
+import { setUser } from "@/Redux/authSlice"
 
 const Navbar = () => {
   const {user} = useSelector(store => store.auth)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const logoutHandler = async () => {
+    try {
+        const res = await axios.get(`${USER_API_END_POINT}/logout`, { withCredentials: true });
+        if (res.data.success) {
+            dispatch(setUser(null));
+            navigate("/");
+            toast.success(res.data.message);
+        }
+    } catch (error) {
+        console.log(error);
+        toast.error(error.response.data.message);
+    }
+}
   return (
     <div className="pt-3">
       <div className='flex items-center justify-between mx-10 lg:mx-auto max-w-7xl h-12 ' >
@@ -55,7 +75,7 @@ const Navbar = () => {
                   </div>
                   <div className="flex w-fil items-center gap-2 cursor-pointer">
                     <LogOut className="" />
-                    <Button variant="link" className='outline-none text-gray-600'> Logout </Button>
+                    <Button onClick={logoutHandler} variant="link" className="text-gray-600">Logout</Button>
                   </div>
                 </div>
               </PopoverContent>
