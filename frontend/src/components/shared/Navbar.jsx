@@ -53,7 +53,7 @@ const Navbar = () => {
             <Popover>
               <PopoverTrigger asChild>
                 <Avatar className="cursor-pointer">
-                  <AvatarImage  src={user?.profile?.profilePhoto} alt="@shadcn" className=" size-10 rounded-full object-cover" />
+                  <AvatarImage  src={user?.profile?.profilePhoto || "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"} alt="@shadcn" className=" size-10 rounded-full border object-cover" />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
               </PopoverTrigger>
@@ -61,7 +61,7 @@ const Navbar = () => {
               <PopoverContent className="w-80">
                 <div className=" flex items-center gap-4  ">
                   <Avatar className="cursor-pointer ">
-                    <AvatarImage  src={user?.profile?.profilePhoto} alt="@shadcn" className="size-10 rounded-full object-cover" />
+                    <AvatarImage  src={user?.profile?.profilePhoto || "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"} alt="@shadcn" className="size-10 rounded-full border object-cover" />
                   </Avatar>
                   <div>
                     <h4 className="font-medium">{user?.fullname}</h4>
