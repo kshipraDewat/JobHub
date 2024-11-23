@@ -34,6 +34,9 @@ export const register = async (req, res) => {
             phoneNumber,
             password: hashedPassword,
             role,
+            profile:{
+                profilePhoto:cloudResponse.secure_url,
+            }
         });
 
         return res.status(201).json({
@@ -148,13 +151,14 @@ export const updateProfile = async (req, res) => {
 
         await user.save();
 
-        // user = {
-        //     _id: user._id,
-        //     fullname: user.fullname,
-        //     email: user.email,
-        //     phoneNumber: user.phoneNumber,
-        //     role: user.role
-        // }
+        user = {
+            _id: user._id,
+            fullname: user.fullname,
+            email: user.email,
+            phoneNumber: user.phoneNumber,
+            role: user.role,
+            profile: user.profile
+        }
 
         return res.status(200).json({
             message:"Profile updated successfully.",
