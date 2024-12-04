@@ -1,11 +1,12 @@
 import React from 'react'
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from './ui/table'
 import { Badge } from './ui/badge'
+import { useSelector } from 'react-redux'
 
-const appliedJobs = [1,2]
 const AppliedJobTable = () => {
-  return (
-    <div>
+    const {allAppliedJobs} = useSelector(store=>store.job);
+    return (
+        <div>
             <Table>
                 <TableCaption>A list of your applied jobs</TableCaption>
                 <TableHeader>
@@ -18,19 +19,19 @@ const AppliedJobTable = () => {
                 </TableHeader>
                 <TableBody>
                     {
-                        appliedJobs.length <= 0 ? <span>You haven't applied any job yet.</span> : appliedJobs.map((item,index) => (
-                            <TableRow key={index}>
-                                <TableCell>22-11-24</TableCell>
-                                <TableCell>Frontend Developer</TableCell>
-                                <TableCell>Google</TableCell>
-                                <TableCell className="text-right"><Badge>Selected</Badge></TableCell>
+                        allAppliedJobs.length <= 0 ? <span>You haven't applied any job yet.</span> : allAppliedJobs.map((appliedJob) => (
+                            <TableRow key={appliedJob._id}>
+                                <TableCell>{appliedJob?.createdAt?.split("T")[0]}</TableCell>
+                                <TableCell>{appliedJob.job?.title}</TableCell>
+                                <TableCell>{appliedJob.job?.company?.name}</TableCell>
+                                <TableCell className="text-right"><Badge className={`${appliedJob?.status === "rejected" ? 'bg-red-400' : appliedJob.status === 'pending' ? 'bg-gray-400' : 'bg-green-400'}`}>{appliedJob.status.toUpperCase()}</Badge></TableCell>
                             </TableRow>
                         ))
                     }
                 </TableBody>
             </Table>
         </div>
-  )
+    )
 }
 
 export default AppliedJobTable
