@@ -34,10 +34,10 @@ const Browse = () => {
             <Navbar />
             <div className='max-w-7xl mx-auto my-10'>
                 <h1 className='font-bold text-xl my-10'>Search Results ({allJobs.length})</h1>
-                <div className='grid grid-cols-3 gap-4'>
+                <div className=' p-5 '>
                 {
                         filterJobs.length <= 0 ? <span>Job not found</span> : (
-                            <div className='flex-1 h-[88vh] overflow-y-auto pb-5'>
+                            <div className=' pb-5'>
                                 <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
                                     {
                                         filterJobs.map((job) =>
