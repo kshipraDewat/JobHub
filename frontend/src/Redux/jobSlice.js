@@ -1,19 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 const jobSlice = createSlice({
-    name : "job",
+    name:"job",
     initialState:{
         allJobs:[],
         allAdminJobs:[],
-        singleJob :null,
+        singleJob:null, 
         searchJobByText:"",
         allAppliedJobs:[],
+        searchedQuery:"",
     },
     reducers:{
-        setAllJobs:(state, action)=>{
-            state.allJobs = action.payload
+        // actions
+        setAllJobs:(state,action) => {
+            state.allJobs = action.payload;
         },
-        setSingleJob : (state, action)=>{
-            state.singleJob = action.payload
+        setSingleJob:(state,action) => {
+            state.singleJob = action.payload;
         },
         setAllAdminJobs:(state,action) => {
             state.allAdminJobs = action.payload;
@@ -24,7 +26,17 @@ const jobSlice = createSlice({
         setAllAppliedJobs:(state,action) => {
             state.allAppliedJobs = action.payload;
         },
+        setSearchedQuery:(state,action) => {
+            state.searchedQuery = action.payload;
+        }
     }
-})
-export const {setAllJobs,setSingleJob,setAllAdminJobs,setSearchJobByText, setAllAppliedJobs} = jobSlice.actions;
+});
+export const {
+    setAllJobs, 
+    setSingleJob, 
+    setAllAdminJobs,
+    setSearchJobByText, 
+    setAllAppliedJobs,
+    setSearchedQuery
+} = jobSlice.actions;
 export default jobSlice.reducer;
