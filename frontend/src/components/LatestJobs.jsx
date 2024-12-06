@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import LatestJobsCard from "./LatestJobsCard";
-import store from "@/Redux/store";
 
 // const randomJobs = [1, 2, 3, 4, 5, 6, 7, 8];
 const LatestJobs = () => {

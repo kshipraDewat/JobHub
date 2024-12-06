@@ -1,5 +1,4 @@
 import { setSingleCompany } from '@/Redux/companySlice'
-import { setAllJobs } from '@/Redux/jobSlice'
 import axios from 'axios'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'

@@ -8,7 +8,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import store from "@/Redux/store";
 import { setLoading } from "@/Redux/authSlice";
 import { Loader2 } from "lucide-react";
 

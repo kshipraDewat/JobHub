@@ -3,7 +3,6 @@ import Navbar from './shared/Navbar'
 import FilterCard from './FilterCard';
 import Job from './Job';
 import { useDispatch, useSelector } from 'react-redux';
-import store from '@/Redux/store';
 import { motion } from 'framer-motion'
 import useGetAllJobs from '@/hooks/useGetAllJobs';
 import { setSearchedQuery } from '@/Redux/jobSlice';

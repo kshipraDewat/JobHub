@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './shared/Navbar'
 import Job from './Job';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSearchedQuery } from '@/Redux/jobSlice';
 import useGetAllJobs from '@/hooks/useGetAllJobs';
 import { motion } from 'framer-motion'
 
@@ -33,7 +32,7 @@ const Browse = () => {
         <div>
             <Navbar />
             <div className='max-w-7xl mx-auto my-10'>
-                <h1 className='font-bold text-xl my-10'>Search Results ({allJobs.length})</h1>
+                <h1 className='font-bold text-xl my-10'>Search Results ({filterJobs.length})</h1>
                 <div className=' p-5 '>
                 {
                         filterJobs.length <= 0 ? <span>Job not found</span> : (
