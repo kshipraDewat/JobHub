@@ -1,6 +1,8 @@
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import React from 'react'
+import useGetAllJobs from "@/hooks/useGetAllJobs"
+import React, { useEffect, useState } from 'react'
+import { useSelector } from "react-redux"
 
 const fitlerData = [
   {
@@ -18,6 +20,27 @@ const fitlerData = [
 ]
 
 const FilterCard = () => {
+  useGetAllJobs();
+  const { allJobs, searchedQuery } = useSelector(store => store.job);
+  const [filterJobs, setFilterJobs] = useState(allJobs);
+
+  useEffect(() => {
+      if (searchedQuery) {
+         console.log("query",searchedQuery) 
+         console.log("jobs",allJobs)
+          const filteredJobs = allJobs.filter((job) => {
+              return job.title.toLowerCase().includes(searchedQuery.toLowerCase()) ||
+                  job.description.toLowerCase().includes(searchedQuery.toLowerCase()) ||
+                  job.location.toLowerCase().includes(searchedQuery.toLowerCase())
+          })
+         console.log(filteredJobs) 
+          setFilterJobs(filteredJobs)
+
+      } else {
+          setFilterJobs(allJobs)
+      }
+  }, [allJobs, searchedQuery]);
+  
   return (
     <div className='w-full h-full bg-white  rounded-md p-3 md:p-10  shadow'>
       <h1 className='font-bold text-lg'>Filter Jobs</h1>
