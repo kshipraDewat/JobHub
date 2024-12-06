@@ -11,8 +11,8 @@ const HeroSection = () => {
     const navigate = useNavigate();
 
     const searchJobHandler = () => {
-        navigate("/browse");
         dispatch(setSearchedQuery(query))
+        navigate("/browse");
     }
     return (
         <div className='text-center mx-2'>

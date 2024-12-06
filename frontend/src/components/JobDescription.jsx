@@ -3,7 +3,6 @@ import { Badge } from './ui/badge'
 import { Button } from './ui/button'
 import { useParams } from 'react-router-dom';
 import { setSingleJob } from '@/Redux/jobSlice';
-import {JOB_API_END_POINT, APPLICATION_API_END_POINT} from '../utils/constant'
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import store from '@/Redux/store';
@@ -17,10 +16,12 @@ const JobDescription = () => {
     const params = useParams()
     const jobId = params.id;
     const dispatch = useDispatch()
+    const VITE_APPLICATION_API_END_POINT = import.meta.env.VITE_APPLICATION_API_END_POINT
+    const VITE_JOB_API_END_POINT = import.meta.env.VITE_JOB_API_END_POINT
 
     const applyJobHandler = async () => {
         try {
-            const res = await axios.get(`${APPLICATION_API_END_POINT}/apply/${jobId}`, {withCredentials:true});
+            const res = await axios.get(`${VITE_APPLICATION_API_END_POINT}/apply/${jobId}`, {withCredentials:true});
             
             if(res.data.success){
                 setIsApplied(true); // Update the local state
@@ -38,7 +39,7 @@ const JobDescription = () => {
     useEffect(()=>{
         const fetchSingleJob = async()=>{
             try{
-                const res = await axios.get(`${JOB_API_END_POINT}/get/${jobId}`, {withCredentials:true});
+                const res = await axios.get(`${VITE_JOB_API_END_POINT}/get/${jobId}`, {withCredentials:true});
                 if(res.data.success){
                     dispatch(setSingleJob(res.data.job))
                 }

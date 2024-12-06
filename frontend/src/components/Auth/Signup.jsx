@@ -7,7 +7,6 @@ import { Button } from "../ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import axios from "axios";
-import { USER_API_END_POINT } from '@/utils/constant'
 import { useDispatch, useSelector } from "react-redux";
 import store from "@/Redux/store";
 import { setLoading } from "@/Redux/authSlice";
@@ -23,6 +22,7 @@ const Signup = () => {
         file: ""
     });
 
+    const VITE_USER_API_END_POINT = import.meta.env.VITE_USER_API_END_POINT
     const {loading} = useSelector(store => store.auth)
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -47,7 +47,7 @@ const Signup = () => {
         }
         try{
             dispatch(setLoading(true));
-            const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
+            const res = await axios.post(`${VITE_USER_API_END_POINT}/register`, formData, {
                 headers: { 'Content-Type': "multipart/form-data" },
                 withCredentials: true,
             });

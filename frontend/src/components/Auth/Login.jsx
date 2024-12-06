@@ -6,7 +6,6 @@ import { Button } from "../ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import axios from "axios";
-import { USER_API_END_POINT } from '@/utils/constant'
 import Navbar from "../shared/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setUser } from "@/Redux/authSlice";
@@ -19,6 +18,7 @@ const Login = () => {
         password:"",
         role:"",
     })
+    const VITE_USER_API_END_POINT = import.meta.env.VITE_USER_API_END_POINT
     const {loading, user}= useSelector(store => store.auth)
     const navigate = useNavigate();
     const dispatch = useDispatch()
@@ -32,7 +32,7 @@ const Login = () => {
         e.preventDefault();
         try {
             dispatch(setLoading(true));
-            const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
+            const res = await axios.post(`${VITE_USER_API_END_POINT}/login`, input, {
                 headers: {
                     "Content-Type": "application/json"
                 },
