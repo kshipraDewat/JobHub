@@ -3,15 +3,15 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import React from 'react'
 import { Button } from '../ui/button'
-import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
+
 import { LogOut, User2 } from "lucide-react"
 import { Link, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { toast } from "sonner"
 import axios from "axios"
 import { setUser } from "@/Redux/authSlice"
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 
 const Navbar = () => {
   const { user } = useSelector(store => store.auth)

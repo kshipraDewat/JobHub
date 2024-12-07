@@ -1,9 +1,10 @@
 import React from 'react'
 import { Button } from './ui/button'
 import { Bookmark } from 'lucide-react'
-import { Avatar, AvatarImage } from '@radix-ui/react-avatar'
+
 import { Badge } from './ui/badge'
 import { useNavigate } from 'react-router-dom'
+import { Avatar, AvatarImage } from './ui/avatar'
 
 const Job = ({job}) => {
   const navigate = useNavigate()
