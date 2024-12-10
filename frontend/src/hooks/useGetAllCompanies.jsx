@@ -12,7 +12,6 @@ const VITE_COMPANY_API_END_POINT = import.meta.env.VITE_COMPANY_API_END_POINT
         const fetchCompanies = async () => {
             try {
                 const res = await axios.get(`${VITE_COMPANY_API_END_POINT}/get`,{withCredentials:true});
-                console.log('called');
                 if(res.data.success){
                     dispatch(setCompanies(res.data.companies));
                 }

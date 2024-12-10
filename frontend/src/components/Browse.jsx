@@ -14,14 +14,11 @@ const Browse = () => {
 
     useEffect(() => {
         if (searchedQuery) {
-           console.log("query",searchedQuery) 
-           console.log("jobs",allJobs)
             const filteredJobs = allJobs.filter((job) => {
                 return job.title.toLowerCase().includes(searchedQuery.toLowerCase()) ||
                     job.description.toLowerCase().includes(searchedQuery.toLowerCase()) ||
                     job.location.toLowerCase().includes(searchedQuery.toLowerCase())
             })
-           console.log(filteredJobs) 
             setFilterJobs(filteredJobs)
 
         } else {

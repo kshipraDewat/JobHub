@@ -13,11 +13,10 @@ const ApplicantsTable = () => {
     const VITE_APPLICATION_API_END_POINT = import.meta.env.VITE_APPLICATION_API_END_POINT
 
     const statusHandler = async (status, id) => {
-        console.log('called');
+        ('called');
         try {
             axios.defaults.withCredentials = true;
             const res = await axios.post(`${VITE_APPLICATION_API_END_POINT}/status/${id}/update`, { status });
-            console.log(res);
             if (res.data.success) {
                 toast.success(res.data.message);
             }
